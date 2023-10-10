@@ -27,7 +27,7 @@ type year struct {
 var tpl *template.Template
 
 func init() {
-	tpl = template.Must(template.ParseFiles("tpl.gohtml"))
+	tpl = template.Must(template.ParseFiles("012_hands-on/01_hands-on/starting-code/tpl.gohtml"))
 }
 
 func main() {
@@ -72,7 +72,7 @@ func main() {
 		},
 	}
 
-	err := tpl.Execute(os.Stdout, nil)
+	err := tpl.Execute(os.Stdout, years)
 	if err != nil {
 		log.Fatalln(err)
 	}

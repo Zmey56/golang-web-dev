@@ -22,10 +22,10 @@ func main() {
 
 func foo(res http.ResponseWriter, req *http.Request) {
 	// parse csv
-	records := prs("table.csv")
+	records := prs("012_hands-on/10_solution/table.csv")
 
 	// parse template
-	tpl, err := template.ParseFiles("hw.gohtml")
+	tpl, err := template.ParseFiles("012_hands-on/10_solution/hw.gohtml")
 	if err != nil {
 		log.Fatalln(err)
 	}
