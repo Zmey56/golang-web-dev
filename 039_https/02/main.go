@@ -3,6 +3,7 @@ package main
 import (
 	"crypto/tls"
 	"fmt"
+	"golang.org/x/crypto/acme"
 	"log"
 	"net/http"
 	"rsc.io/letsencrypt"
@@ -10,9 +11,10 @@ import (
 
 func main() {
 	http.HandleFunc("/", foo)
+	letsencrypt.Client = &acme.Client{DirectoryURL: "https://acme-staging-v02.api.letsencrypt.org/directory"}
 
 	var m letsencrypt.Manager
-	if err := m.CacheFile("letsencrypt.cache"); err != nil {
+	if err := m.CacheFile("lets encrypt.cache"); err != nil {
 		log.Fatalln(err)
 	}
 
